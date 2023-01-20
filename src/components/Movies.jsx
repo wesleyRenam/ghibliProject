@@ -1,22 +1,21 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useContext } from 'react';
 import FilmsContext from '../context/FilmsContext';
 
-export default function Favorites() {
-  const { movies, favorites, removeFavorite } = useContext(FilmsContext);
+function Movies() {
+  const { movies, saveFavorite } = useContext(FilmsContext);
   return (
-    <div>
-      <h2> Favoritos </h2>
+    <div className="repos">
       {
-        favorites.map((movie) => (
+        movies.map((movie) => (
           <div key={ movie.id } className="repo">
             <p>{movie.original_title_romanised}</p>
             <img src={ movie.movie_banner } alt={ movie.original_title_romanised } />
             <button
               type="submit"
-              onClick={ () => removeFavorite(movie) }
+              onClick={ () => saveFavorite(movie.id) }
             >
-              Desfavoritar
+              Favoritar
             </button>
           </div>
         ))
@@ -24,3 +23,5 @@ export default function Favorites() {
     </div>
   );
 }
+
+export default Movies;
