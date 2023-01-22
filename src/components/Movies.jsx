@@ -10,7 +10,7 @@ function Movies() {
         movies.map((movie) => (
           <div key={ movie.id } className="repo">
             <p>{movie.original_title_romanised}</p>
-            <img src={ movie.movie_banner } alt={ movie.original_title_romanised } />
+            <img src={ movie.movie_banner } alt={ movie.original_title_romanised } width="200px"/>
             <button
               type="submit"
               onClick={ () => saveFavorite(movie.id) }
