@@ -8,6 +8,7 @@ function FilmsProvider({ children }) {
   const fetchMovies = async () => {
     const response = await fetch('https://api-trybe-frontend.vercel.app/api/ghibli-animations');
     const data = await response.json();
+    data.forEach((each) => each['isFavorite'] = false)
     setMovies(data);
   };
 
@@ -16,8 +17,8 @@ function FilmsProvider({ children }) {
   }, []);
 
   const [favorites, setFavorites] = useState([]);
-  const saveFavorite = (id) => {
-    const favMovies = movies.filter((movie) => movie.id === id);
+  const saveFavorite = (mov) => {
+    const favMovies = movies.filter((movie) => movie.id === mov.id);
     if (!favorites.includes(favMovies[0])) setFavorites((old) => [...old, favMovies[0]]);
   };
   const removeFavorite = (movie) => {

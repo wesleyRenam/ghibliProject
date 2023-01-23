@@ -11,7 +11,7 @@ const history = useHistory();
   return(
     <div className="bg-blue-300 min-h-screen flex items-center justify-center flex-col">
       <form className="bg-slate-200 w-96 px-5 py-9 rounded-xl shadow-lg flex items-center flex-col justify-center">
-        <img src={require('../img/logo.png')} className='mb-4'/>
+        <img src={require('../img/logogif.gif')} className='mb-4 w-50'/>
         <fieldset className='w-full flex items-center justify-center mt-2'>
           <input
             className='bg-stone-300 p-2 rounded-md w-full'

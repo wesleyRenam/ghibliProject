@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useContext } from 'react';
-import Menu from '../components/Menu';
 import Header from '../components/Header';
 import FilmsContext from '../context/FilmsContext';
 
@@ -8,7 +7,6 @@ export default function Favorites() {
   const { movies, favorites, removeFavorite } = useContext(FilmsContext);
   return (
     <div>
-      <Menu />
       <Header/>
       <h2> Favoritos </h2>
       {
