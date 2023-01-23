@@ -30,24 +30,29 @@ const validationEmail = (email) => {
 const validatePass = (pass) => {
   return (pass.length < 6)
 }
+const validateTouched = (touch) => {
+  return(touch.length === 0)
+}
 
 const handleChange = (event) => {
   const { name, value } = event.target;
   if(name === 'email') {
     const validEmail = validationEmail(value);
+    const touch = validateTouched(value)
     setEmail({
       value,
       error: !validEmail ? 'Insira um email valido' :  '',
       hasError: !validEmail,
-      wasTouched: true,
+      wasTouched: !touch,
     })
   } else if (name === 'password') {
     const validPass = validatePass(value);
+    const touch = validateTouched(value)
     setPassword({
       value,
       error: validPass ? 'A senha tem que ter pelo menos 6 caracteres' :  '',
       hasError: validPass,
-      wasTouched: true,
+      wasTouched: !touch,
     })
   }
 }
