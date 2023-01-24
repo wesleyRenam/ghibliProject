@@ -20,8 +20,10 @@ module.exports = {
       },
     },
     maxWidth: {
+      'xs': '24rem',
       '2xs': '18rem',
-      '3xs': '13rem',
+      '3xs': '14rem',
+      '4xs': '12rem',
       '2xl': '100rem'
     },
     extend: {},

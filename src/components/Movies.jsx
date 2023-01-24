@@ -11,7 +11,7 @@ function Movies() {
         movies.map((movie) => (
           <div key={ movie.id } className="" >
             <div className="rounded-lg shadow-2xl bg-navyblue p-3 pb-4 max-w-2xs m-3
-            max-sm:max-w-3xs ">
+            sm:max-w-3xs min-[432px]:max-w-4xs min-[390px]:max-w-xs">
               <img src={ movie.image } alt={ movie.original_title_romanised } className=""/>
               <div className='flex items-center justify-between mt-3'>
                 <p className='text-xl items-center text-white'>{movie.title}</p>
