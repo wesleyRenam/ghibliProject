@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import LoginContext from './LoginContext';
 
 function LoginProvider({ children }) {
@@ -20,7 +20,7 @@ const [password, setPassword] = useState({
 
 const [showPassword, setShowPassword] = useState(false)
 const [remember, setRemember] = useState(false)
-const [dark, setDark] = useState(true)
+const [dark, setDark] = useState(false)
 
 const validationEmail = (email) => {
   const emailRegex = /^(.+)@(.+)$/;
@@ -59,7 +59,7 @@ const handleChange = (event) => {
 
   const values = useMemo(() => ({
     password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember, handleChange
-  }), [password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember, handleChange]);
+  }), [password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember]);
 
   return (
     <LoginContext.Provider value={ values }>

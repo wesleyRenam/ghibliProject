@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import FilmsContext from '../context/FilmsContext';
 
 function Movies() {
@@ -9,6 +10,7 @@ function Movies() {
     <div className="flex flex-row flex-wrap items-center justify-center bg-babyblue ">
       {
         movies.map((movie) => (
+          <Link to={ `/movie/${movie.id}` }>
           <div key={ movie.id } className="" >
             <div className="rounded-lg shadow-2xl bg-navyblue p-3 pb-4 max-w-2xs m-3
             sm:max-w-3xs min-[432px]:max-w-4xs min-[390px]:max-w-xs">
@@ -27,6 +29,7 @@ function Movies() {
               </div>
             </div>
           </div>
+          </Link>
         ))
       }
     </div>

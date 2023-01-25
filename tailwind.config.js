@@ -18,12 +18,14 @@ module.exports = {
       'red': {
         500: '#ef4444',
       },
+      'hoverBlue': '#0D77B5',
     },
     maxWidth: {
       'xs': '24rem',
       '2xs': '18rem',
       '3xs': '14rem',
       '4xs': '12rem',
+      'xl': '50rem',
       '2xl': '100rem'
     },
     extend: {},

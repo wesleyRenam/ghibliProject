@@ -8,7 +8,6 @@ export default function Favorites() {
   return (
     <div className='bg-babyblue h-screen'>
       <Header/>
-      <h2> Favoritos </h2>
       <div className="flex flex-row flex-wrap items-center justify-center bg-babyblue">
       {
         favorites.map((movie) => (
