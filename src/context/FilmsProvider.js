@@ -4,11 +4,11 @@ import FilmsContext from './FilmsContext';
 
 function FilmsProvider({ children }) {
   const [movies, setMovies] = useState([]);
+  const [inputText, setInputText] = useState('');
 
   const fetchMovies = async () => {
     const response = await fetch('https://api-trybe-frontend.vercel.app/api/ghibli-animations');
     const data = await response.json();
-    data.forEach((each) => each['isFavorite'] = false)
     setMovies(data);
   };
 
@@ -26,8 +26,8 @@ function FilmsProvider({ children }) {
   };
 
   const values = useMemo(() => ({
-    movies, favorites, saveFavorite, removeFavorite,
-  }), [movies, favorites, removeFavorite]);
+    movies, favorites, saveFavorite, removeFavorite, inputText, setInputText
+  }), [movies, favorites, removeFavorite, inputText, setInputText]);
 
   return (
     <FilmsContext.Provider value={ values }>
