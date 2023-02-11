@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className={`flex bg-${!dark ? 'ghibliblue' : 'darkHeader'} p-3 py-5 shadow w-full max-h-15 justify-between items-center`}>
       <Link to="/home" className='max-[500px]:w-1/2 '>
-         <img alt="logoGhibli"src={require('../img/Studio_Ghibli.png')} className="ml-20 max-[500px]:ml-5 max-[500px]:w-1/2" width="160rem" />
+         <img alt="logoGhibli"src={require(`../img/${!dark ? 'Studio_Ghibli.png' : 'darkLogoHeader.png'}`)} className="ml-20 max-[500px]:ml-5 max-[500px]:w-1/2" width="160rem" />
       </Link>
       <div className='flex justify-between' >
         <Link to="/favorites" className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 hover:scale-110 ease-in duration-300 hover:bg-hoverBlue hover:border-white max-[500px]:border-none max-[500px]:mr-0 max-[500px]:py-3'>
