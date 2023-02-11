@@ -12,7 +12,7 @@ function Movies() {
   return (
     <div className='h-screen bg-babyblue '>
       {isLoading ? isLoading : 
-      <div className="flex flex-row flex-wrap items-center justify-center">
+      <div className="flex flex-row flex-wrap items-center bg-babyblue justify-center">
         {
           (!filterMovies.length) ? 'Não existe com esse filtro' :
           filterMovies.map((movie) => (
