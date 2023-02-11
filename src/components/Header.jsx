@@ -23,7 +23,7 @@ export default function Header() {
         </Link>
         <div className='relative max-[500px]:absolute min-[1000px]:bottom-3'>
           <button onClick={() => hideSearch ? setHideSearch(false) : setHideSearch(true)}>
-            <img alt="lupa"className='w-8 absolute right-12 top-8 max-[500px]:top-0 max-[500px]:relative max-[500px]:top-3 max-[500px]:right-10' src={require('../img/lupa.png')}/>
+            <img alt="lupa"className='w-8 absolute right-12 top-8 max-[500px]:top-1 max-[500px]:relative max-[500px]:top-3 max-[500px]:right-10' src={require('../img/lupa.png')}/>
           </button>
           <input type="text" onChange = {(e) => setInputText(e.target.value)} className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 bg-navyblue text-white w-60 max-[500px]:hidden'/>   
         </div>
