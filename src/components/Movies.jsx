@@ -7,24 +7,24 @@ import Loading from './Loading';
 
 function Movies() {
   const { movies, saveFavorite, favorites, removeFavorite, inputText, isLoading, setInputText } = useContext(FilmsContext);
-  const {hideSearch} = useContext(LoginContext);
-  const regex = /^[a-z\u00E0-\u00FC]+$/i;
+  const {hideSearch, dark} = useContext(LoginContext);
+  console.log(dark)
   const filterMovies = movies.filter((mov) => mov.title.toLowerCase().includes(inputText.toLowerCase()))
   return (
-    <div className='h-screen bg-babyblue '>
+    <div className={`'h-screen bg-babyblue `}>
       <div className= {hideSearch ? 'hidden' : 'hidden max-[500px]:flex justify-center items-center '}>
         <input type="text" onChange = {(e) => setInputText(e.target.value)} className='mx-1 flex border-solid border-2 border-navyblue rounded-lg p-3 bg-navyblue text-white w-full max-'/>  
         <img alt="starHome"className='w-8 absolute right-6 ' src={require('../img/lupa.png')}/>
       </div>
       
       {isLoading ? <Loading /> : 
-      <div className="flex flex-row flex-wrap items-center bg-babyblue justify-center">
+      <div className={`flex flex-row flex-wrap items-center bg-${!dark ? 'babyblue' : 'darkBG'} justify-center`}>
         {
           (!filterMovies.length) ? 'Não existe com esse filtro' :
           filterMovies.map((movie) => (
             <div key={ movie.id } className="" >
-              <div className="rounded-lg shadow-2xl bg-navyblue p-3 pb-4 max-w-2xs m-3
-              sm:max-w-3xs min-[432px]:max-w-4xs min-[390px]:max-w-xs">
+              <div className={`rounded-lg shadow-2xl bg-${!dark ? 'navyblue' : 'darkCard'} p-3 pb-4 max-w-2xs m-3
+              sm:max-w-3xs min-[432px]:max-w-4xs min-[390px]:max-w-xs`}>
                 <Link to={ `/movie/${movie.id}` }>
                 <img src={ movie.image } alt={ movie.original_title_romanised } className=""/>
                 </Link>

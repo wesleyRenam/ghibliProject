@@ -8,7 +8,7 @@ export default function Header() {
   const { dark, setDark, setHideSearch, hideSearch } = useContext(LoginContext);
   const { setInputText} = useContext(FilmsContext);
   return (
-    <header className="flex bg-ghibliblue p-3 py-5 shadow w-full max-h-15 justify-between items-center">
+    <header className={`flex bg-${!dark ? 'ghibliblue' : 'darkHeader'} p-3 py-5 shadow w-full max-h-15 justify-between items-center`}>
       <Link to="/home" className='max-[500px]:w-1/2 '>
          <img alt="logoGhibli"src={require('../img/Studio_Ghibli.png')} className="ml-20 max-[500px]:ml-5 max-[500px]:w-1/2" width="160rem" />
       </Link>

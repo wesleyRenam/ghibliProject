@@ -19,6 +19,10 @@ module.exports = {
         500: '#ef4444',
       },
       'hoverBlue': '#0D77B5',
+      'darkCard': '#0B171E',
+      'darkCard2': '#081B21', 
+      'darkBG': '#144552',
+      'darkHeader': '#0b525b',
     },
     maxWidth: {
       'xs': '24rem',
