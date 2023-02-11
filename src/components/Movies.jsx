@@ -8,7 +8,6 @@ import Loading from './Loading';
 function Movies() {
   const { movies, saveFavorite, favorites, removeFavorite, inputText, isLoading, setInputText } = useContext(FilmsContext);
   const {hideSearch, dark} = useContext(LoginContext);
-  console.log(dark)
   const filterMovies = movies.filter((mov) => mov.title.toLowerCase().includes(inputText.toLowerCase()))
   return (
     <div className={`'h-screen bg-babyblue `}>
@@ -18,13 +17,14 @@ function Movies() {
       </div>
       
       {isLoading ? <Loading /> : 
-      <div className={`flex flex-row flex-wrap items-center bg-${!dark ? 'babyblue' : 'darkBG'} justify-center`}>
+      <div className={`flex flex-row flex-wrap items-center justify-center`} style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
         {
           (!filterMovies.length) ? 'Não existe com esse filtro' :
           filterMovies.map((movie) => (
             <div key={ movie.id } className="" >
-              <div className={`rounded-lg shadow-2xl bg-${!dark ? 'navyblue' : 'darkCard'} p-3 pb-4 max-w-2xs m-3
-              sm:max-w-3xs min-[432px]:max-w-4xs min-[390px]:max-w-xs`}>
+              <div className={`rounded-lg shadow-2xl p-3 pb-4 max-w-2xs m-3
+              sm:max-w-3xs min-[432px]:max-w-4xs min-[390px]:max-w-xs`}
+              style={{backgroundColor: !dark ? '#05445E' : '#0B171E' }}>
                 <Link to={ `/movie/${movie.id}` }>
                 <img src={ movie.image } alt={ movie.original_title_romanised } className=""/>
                 </Link>

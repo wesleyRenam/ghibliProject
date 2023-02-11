@@ -8,16 +8,18 @@ export default function Header() {
   const { dark, setDark, setHideSearch, hideSearch } = useContext(LoginContext);
   const { setInputText} = useContext(FilmsContext);
   return (
-    <header className={`flex bg-${!dark ? 'ghibliblue' : 'darkHeader'} p-3 py-5 shadow w-full max-h-15 justify-between items-center`}>
+    <header className={`flex p-3 py-5 shadow w-full max-h-15 justify-between items-center`} style={{backgroundColor: !dark ? '#109ceb' : '#0b525b' }}>
       <Link to="/home" className='max-[500px]:w-1/2 '>
          <img alt="logoGhibli"src={require(`../img/${!dark ? 'Studio_Ghibli.png' : 'darkLogoHeader.png'}`)} className="ml-20 max-[500px]:ml-5 max-[500px]:w-1/2" width="160rem" />
       </Link>
       <div className='flex justify-between' >
-        <Link to="/favorites" className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 hover:scale-110 ease-in duration-300 hover:bg-hoverBlue hover:border-white max-[500px]:border-none max-[500px]:mr-0 max-[500px]:py-3'>
+        <Link to="/favorites" className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 hover:scale-110 ease-in duration-300 hover:bg-hoverBlue hover:border-white max-[500px]:border-none max-[500px]:mr-0 max-[500px]:py-3'
+ style={{borderColor: !dark ? '#05445E' : '#0B171E' }}>
           <img alt="starHome"className='w-7 mr-2 max-[500px]:mr-0' src={require('../img/starWhiteFull.png')}/>
           <small className='text-white text-lg max-[500px]:hidden'>Favoritos</small>
         </Link>
-        <Link to="/profile" className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 hover:scale-110 ease-in duration-300 hover:bg-hoverBlue hover:border-white max-[500px]:border-none max-[500px]:mr-0 max-[500px]:py-3' >
+        <Link to="/profile" className='mr-10 flex items-center justify-center border-solid border-2 rounded-lg p-3 hover:scale-110 ease-in duration-300 hover:bg-hoverBlue hover:border-white max-[500px]:border-none max-[500px]:mr-0 max-[500px]:py-3'
+        style={{borderColor: !dark ? '#05445E' : '#0B171E' }}>
          <img alt="profileAvatar"className='w-7 mr-2 max-[500px]:mr-0' src={require('../img/avatarWhite.png')}/>
          <small className='text-white text-lg max-[500px]:hidden'>Profile</small>
         </Link>
@@ -28,7 +30,7 @@ export default function Header() {
           <input type="text" onChange = {(e) => setInputText(e.target.value)} className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 bg-navyblue text-white w-60 max-[500px]:hidden'/>   
         </div>
         <button onClick = {() => setDark(!dark )}>
-          <img alt="darkbtn"className='w-9 mr-2 hover:scale-125 ease-in duration-300 max-[500px]:w-9'src={ !dark ? require('../img/moon.png') : require('../img/moonDark.png')}/>
+          <img alt="darkbtn"className='w-9 mr-2 hover:scale-125 ease-in duration-300 max-[500px]:w-9'src={ dark ? require('../img/moon.png') : require('../img/moonDark.png')}/>
         </button>
       </div>
     </header>
