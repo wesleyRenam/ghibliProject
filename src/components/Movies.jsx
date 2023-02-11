@@ -2,16 +2,15 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import FilmsContext from '../context/FilmsContext';
-import isLoading from './Loading';
+import Loading from './Loading';
 
 function Movies() {
-  const { movies, saveFavorite,favorites,removeFavorite, inputText, isLoading } = useContext(FilmsContext);
+  const { movies, saveFavorite, favorites, removeFavorite, inputText, isLoading } = useContext(FilmsContext);
   const filterMovies = movies.filter((mov) => mov.title.toLowerCase().includes(inputText ))
-  console.log(filterMovies)
 
   return (
     <div className='h-screen bg-babyblue '>
-      {isLoading ? isLoading : 
+      {isLoading ? <Loading /> : 
       <div className="flex flex-row flex-wrap items-center bg-babyblue justify-center">
         {
           (!filterMovies.length) ? 'Não existe com esse filtro' :
