@@ -5,7 +5,7 @@ import FilmsContext from '../context/FilmsContext';
 
 
 export default function Header() {
-  const { dark, setDark, hideSearch, setHideSearch } = useContext(LoginContext);
+  const { dark, setDark, setHideSearch, hideSearch } = useContext(LoginContext);
   const { setInputText} = useContext(FilmsContext);
   return (
     <header className="flex bg-ghibliblue p-3 py-5 shadow w-full max-h-15 justify-between items-center">
@@ -22,7 +22,7 @@ export default function Header() {
          <small className='text-white text-lg max-[500px]:hidden'>Profile</small>
         </Link>
         <div className='relative max-[500px]:absolute'>
-          <button onClick={() => setHideSearch(true)}>
+          <button onClick={() => hideSearch ? setHideSearch(false) : setHideSearch(true)}>
             <img alt="starHome"className='w-8 absolute right-12 top-7 max-[500px]:top-0 max-[500px]:relative max-[500px]:top-3 max-[500px]:right-10' src={require('../img/lupa.png')}/>
           </button>
           <input type="text" onChange = {(e) => setInputText(e.target.value)} className='mr-10 flex items-center justify-center border-solid border-2 border-navyblue rounded-lg p-3 bg-navyblue text-white w-60 max-[500px]:hidden'/>   

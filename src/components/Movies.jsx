@@ -2,14 +2,20 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import FilmsContext from '../context/FilmsContext';
+import LoginContext from '../context/LoginContext';
 import Loading from './Loading';
 
 function Movies() {
-  const { movies, saveFavorite, favorites, removeFavorite, inputText, isLoading } = useContext(FilmsContext);
+  const { movies, saveFavorite, favorites, removeFavorite, inputText, isLoading, setInputText } = useContext(FilmsContext);
+  const {hideSearch} = useContext(LoginContext);
   const filterMovies = movies.filter((mov) => mov.title.toLowerCase().includes(inputText ))
-
   return (
     <div className='h-screen bg-babyblue '>
+      <div className= {hideSearch ? 'hidden' : 'hidden max-[500px]:flex justify-center items-center'}>
+        <input type="text" onChange = {(e) => setInputText(e.target.value)} className='mx-1 flex border-solid border-2 border-navyblue rounded-lg p-3 bg-navyblue text-white w-full max-'/>  
+        <img alt="starHome"className='w-8 absolute right-6 ' src={require('../img/lupa.png')}/>
+      </div>
+      
       {isLoading ? <Loading /> : 
       <div className="flex flex-row flex-wrap items-center bg-babyblue justify-center">
         {

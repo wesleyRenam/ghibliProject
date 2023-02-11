@@ -21,6 +21,7 @@ const [password, setPassword] = useState({
 const [showPassword, setShowPassword] = useState(false)
 const [remember, setRemember] = useState(false)
 const [dark, setDark] = useState(false)
+const [hideSearch, setHideSearch] = useState(true);
 
 const validationEmail = (email) => {
   const emailRegex = /^(.+)@(.+)$/;
@@ -58,8 +59,8 @@ const handleChange = (event) => {
 }
 
   const values = useMemo(() => ({
-    password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember, handleChange
-  }), [password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember]);
+    password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember, handleChange, hideSearch, setHideSearch
+  }), [password, email, dark, setDark, showPassword, setShowPassword, remember, setRemember, hideSearch, setHideSearch]);
 
   return (
     <LoginContext.Provider value={ values }>
