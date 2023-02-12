@@ -10,8 +10,8 @@ function Movies() {
   const {hideSearch, dark} = useContext(LoginContext);
   const filterMovies = movies.filter((mov) => mov.title.toLowerCase().includes(inputText.toLowerCase()))
   return (
-    <div className={`'h-screen`} style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
-      <div className= {hideSearch ? 'hidden' : 'hidden max-[500px]:flex justify-center items-center '}>
+    <div className='h-screen' style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
+      <div className= {hideSearch ? 'hidden' : 'hidden max-[600px]:flex justify-center items-center '}>
         <input type="text" onChange = {(e) => setInputText(e.target.value)} className='mx-1 flex border-solid border-2 border-navyblue rounded-lg p-3 text-white w-full max-' style={{backgroundColor: !dark ? '#05445E' : '#0B171E' }}/>  
         <img alt="starHome"className='w-8 absolute right-6 ' src={require('../img/lupa.png')}/>
       </div>
