@@ -15,13 +15,13 @@ function MovieCard () {
         {(!movies.length) ? <Loading /> :
           <div className='text-white h-screen w-screen flex justify-center items-center' style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
               <div className="rounded-lg shadow-2xl p-4 flex max-h-[100vh] max-w-[90vw] max-[600px]:w-[80vw] flex-col items-center py-5 space-y-2" style={{backgroundColor: !dark ? '#05445E' : '#162E3C' }}>
-                <div className="flex items-center max-w-[90vw] justify-around w-full">
+                <div className="flex items-center max-w-[100vw] justify-between w-full">
                   <Link to="/home">
                     <img src={require('../img/arrowIcon2.png')} alt="arrow" />
                   </Link>
-                  <h1 className="text-2xl">{movie[0].title}</h1> 
+                  <h1 className="max-[600px]:text-lg text-2xl">{movie[0].title}</h1> 
                   <button onClick = {() => setDark(!dark )}>
-                    <img alt="darkbtn"className='w-11'src={ dark ? require('../img/sun.png') : require('../img/half-moon.png')}/>
+                    <img alt="darkbtn"className='w-11 max-[600px]:w-9'src={ dark ? require('../img/sun.png') : require('../img/half-moon.png')}/>
                   </button>
                 </div>
                 <img src={movie[0].movie_banner} alt="" className="" width="600rem"/>
