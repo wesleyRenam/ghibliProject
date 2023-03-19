@@ -12,7 +12,8 @@ export default function Favorites() {
       <Header/>
       <div className="flex flex-row flex-wrap items-center justify-center " 
       style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
-      {
+        
+      { (!favorites.length) ? <h1>Não tem favoritos</h1> :
         favorites.map((movie) => (
           <div key={ movie.id } className="" >
             <div className="rounded-lg shadow-2xl p-3 pb-4 max-w-2xs m-3
