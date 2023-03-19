@@ -13,9 +13,9 @@ function MovieCard () {
     return (
       <div className="h-screen">
         {(!movies.length) ? <Loading /> :
-          <div className='text-white h-screen flex justify-center items-center' style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
-              <div className="rounded-lg shadow-2xl p-4 flex h-[80vh] w-[65vw] max-[600px]:w-[80vw] flex-col items-center py-5 space-y-2" style={{backgroundColor: !dark ? '#05445E' : '#162E3C' }}>
-                <div className="flex items-center w-[80vw] justify-around">
+          <div className='text-white h-screen w-screen flex justify-center items-center' style={{backgroundColor: !dark ? '#58B7EE' : '#144552' }}>
+              <div className="rounded-lg shadow-2xl p-4 flex max-h-[100vh] w-[65vw] max-[600px]:w-[80vw] flex-col items-center py-5 space-y-2" style={{backgroundColor: !dark ? '#05445E' : '#162E3C' }}>
+                <div className="flex items-center w-[65vw] justify-around">
                   <Link to="/home">
                     <img src={require('../img/arrowIcon2.png')} alt="arrow" />
                   </Link>
