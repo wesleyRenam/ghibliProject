@@ -7,6 +7,7 @@ function FilmsProvider({ children }) {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [hideSearch, setHideSearch] = useState(true);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) ?? []);
 
   const fetchMovies = async () => {
     setIsLoading(true);
@@ -19,19 +20,39 @@ function FilmsProvider({ children }) {
   useEffect(() => {
     fetchMovies();
   }, []);
-
-  const [favorites, setFavorites] = useState([]);
   const saveFavorite = (mov) => {
-    const favMovies = movies.filter((movie) => movie.id === mov.id);
-    if (!favorites.includes(favMovies[0])) setFavorites((old) => [...old, favMovies[0]]);
+    const favoritesLocalStorage = JSON.parse(localStorage.getItem('favorites')) ?? []
+    const favMovies = movies.find((movie) => movie.id === mov.id);
+    if (!favorites.includes(favMovies)) {
+      setFavorites((old) => [...old, favMovies]);
+      favoritesLocalStorage.push(favMovies)
+      localStorage.setItem('favorites', JSON.stringify(favoritesLocalStorage))
+    }
   };
   const removeFavorite = (movie) => {
-    setFavorites(favorites.filter((each) => each.id !== movie.id));
+    const removedMovie = favorites.filter((each) => each.id !== movie.id)
+    setFavorites(removedMovie);
+    localStorage.setItem('favorites', JSON.stringify(removedMovie))
   };
 
   const values = useMemo(() => ({
-    movies, favorites, saveFavorite, removeFavorite, inputText, setInputText, isLoading, hideSearch, setHideSearch
-  }), [movies, favorites, removeFavorite, inputText, setInputText, isLoading]);
+    movies,
+    favorites,
+    saveFavorite,
+    removeFavorite,
+    inputText,
+    setInputText,
+    isLoading,
+    hideSearch,
+    setHideSearch
+  }), [movies,
+    favorites,
+    removeFavorite,
+    inputText,
+    setInputText,
+    isLoading,
+    hideSearch,
+  ]);
 
   return (
     <FilmsContext.Provider value={ values }>
